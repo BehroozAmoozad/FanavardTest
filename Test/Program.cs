@@ -21,8 +21,8 @@ namespace Test
                 a = new int[n + 1];
                 //Copy the input line to the `array` 
                 var index = 1;
-                foreach (var item in Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse))
-                    a[index++] = item;
+                foreach (var itemSize in Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse))
+                    a[index++] = itemSize;
 
                 //We could do all this with a blank slot in the beginning but the requirements don't specifically allow it,
                 //Even though they do dictate how to index it.
@@ -30,13 +30,13 @@ namespace Test
 
             //compute the results
 
-            var maxObj = 0;
+            var maxPutItems = 0;
 
             {
                 //iterate all possible starting points for packaging
                 for (var j = 1; j <= n; j++)
                 {
-                    var putObjects = 0;
+                    var putItems = 0;
                     var unusedBoxes = m;
                     var unusedSize = 0;
                     //iterate through objects to determine which can fit in the box
@@ -51,23 +51,23 @@ namespace Test
                             //are we out of boxes?
                             if (unusedBoxes == -1)
                                 break;
-                            putObjects++;
+                            putItems++;
                         }
                         else
                         {
                             //put it in the current box
                             unusedSize -= a[index];
-                            putObjects++;
+                            putItems++;
                         }
                     }
                     //Did we get a better result this time?
-                    maxObj = Math.Max(maxObj, putObjects);
+                    maxPutItems = Math.Max(maxPutItems, putItems);
                 }
             }
 
             //print the results
             {
-                Console.WriteLine(maxObj);
+                Console.WriteLine(maxPutItems);
             }
         }
     }
