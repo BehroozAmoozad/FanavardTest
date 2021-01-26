@@ -12,7 +12,7 @@ namespace Test
             int[] a;
             //read stdin
             {
-                int[] line1 = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+                var line1 = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
                 n = line1[0]; //object count
                 m = line1[1]; //box count
                 k = line1[2]; //box size
@@ -30,17 +30,17 @@ namespace Test
 
             //compute the results
 
-            int maxObj = 0;
+            var maxObj = 0;
 
             {
                 //iterate all possible starting points for packaging
                 for (var j = 1; j <= n; j++)
                 {
-                    int putObjects = 0;
-                    int unusedBoxes = m;
-                    int unusedSize = 0;
+                    var putObjects = 0;
+                    var unusedBoxes = m;
+                    var unusedSize = 0;
                     //iterate through objects to determine which can fit in the box
-                    for (int index = j; index <= n; index++)
+                    for (var index = j; index <= n; index++)
                     {
                         //will it overflow?
                         if (a[index] > unusedSize)
