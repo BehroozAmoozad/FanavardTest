@@ -15,7 +15,7 @@
  ## How it works
 
 
-* although the problem is extremely simple and the solution self-explanatory We're gonna go through the steps taken to solve it:
+although the problem is extremely simple and the solution self-explanatory We're gonna go through the steps taken to solve it:
  
  After reading the input we first iterate through all possible starting points for the given set of items from the 1st to last to determine wich items can fit in the boxes and we add them up until we either run out of items or boxes. After each iteration we compare our results with our previous best and if it's better than the previous best we then use the current run's results as best.  
  At the end we print the best result(which is how many items can we fit in the given boxes at most if we skip an item every time we can't fit it all properly).
